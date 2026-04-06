@@ -46,6 +46,9 @@ db.sqlite3
 *.png
 *.gif
 
+# But allow screenshots
+!docs/screenshots/*.png
+
 # Frontend (Node.js/Vite)
 node_modules/
 dist/
