@@ -12,14 +12,14 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import sys
-from local_settings import (
-    EMAIL_HOST,
-    EMAIL_PORT,
-    EMAIL_HOST_USER,
-    EMAIL_HOST_PASSWORD,
-    EMAIL_USE_TLS,
-    SENDER_EMAIL
-)
+# from local_settings import (
+#     EMAIL_HOST,
+#     EMAIL_PORT,
+#     EMAIL_HOST_USER,
+#     EMAIL_HOST_PASSWORD,
+#     EMAIL_USE_TLS,
+#     SENDER_EMAIL
+# )
 
 from decouple import config
 
@@ -33,9 +33,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'smvfixi&v4mrulp2wvxp)kwjf^yqv-3h+f+nu5m)&=o=7(nlk1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=lambda v: [s.strip() for s in v.split(',')])
 
 # Application definition
 
@@ -143,19 +143,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "workshop_app", "data")
 LOG_FOLDER = os.path.join(BASE_DIR, "workshop_app", "logs")
 
 # Email Connection Settings
-EMAIL_HOST = EMAIL_HOST
-EMAIL_HOST_USER = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-EMAIL_PORT = EMAIL_PORT
-EMAIL_USE_TLS = EMAIL_USE_TLS
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+EMAIL_PORT = config('EMAIL_PORT', default=587)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_TIMEOUT = 300
-SENDER_EMAIL = SENDER_EMAIL
+SENDER_EMAIL = config('SENDER_EMAIL', default='')
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Use SMTP backend for production, console backend for development
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 
 # Change this to the production url
 PRODUCTION_URL = 'http://localhost:8000'
