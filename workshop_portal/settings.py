@@ -32,9 +32,14 @@ elif DEBUG:
     # Local dev convenience: avoid DisallowedHost when using runserver.
     ALLOWED_HOSTS = ['*']
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app', 'your-project.vercel.app']
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app"
+]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
 SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'True').lower() == 'true'
 SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'True').lower() == 'true'
 CSRF_COOKIE_SECURE = os.environ.get('CSRF_COOKIE_SECURE', 'True').lower() == 'true'
@@ -141,8 +146,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'dist')]
-# Use non-manifest storage so `collectstatic` doesn't fail if vendor CSS references
-# missing sourcemaps (e.g. bootstrap.min.css.map).
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Silence AutoField warnings across apps.
@@ -165,18 +168,15 @@ EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True').lower() == 'true'
 EMAIL_TIMEOUT = 300
 SENDER_EMAIL = os.environ.get('SENDER_EMAIL', '')
 
-# Use SMTP backend for production, console backend for development
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 
 # Change this to the production url
-PRODUCTION_URL = 'http://localhost:8000'
+PRODUCTION_URL = 'https://your-project.vercel.app'
 
 ADMIN_EMAIL = 'your admin email'
 
-# Set True or False to view/hide
 SHOW_WORKSHOP_STATS = True
 
-# Create a CMS page as a home page and give the page title here
 HOME_PAGE_TITLE = "home-page-title"
 
 LOGIN_REDIRECT_URL = '/workshop/login'

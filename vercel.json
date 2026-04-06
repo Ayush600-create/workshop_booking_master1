@@ -16,7 +16,8 @@
     }
   ],
   "env": {
-    "DJANGO_SETTINGS_MODULE": "workshop_portal.settings"
+    "DJANGO_SETTINGS_MODULE": "workshop_portal.settings",
+    "PYTHONPATH": "."
   },
   "buildCommand": "python manage.py collectstatic --noinput"
 }
