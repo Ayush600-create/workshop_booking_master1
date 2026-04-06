@@ -2,7 +2,7 @@
 
 This is a complete redesign of the FOSSEE Workshop Booking system, transitioning from a legacy server-rendered Django application to a modern, high-performance React Single Page Application (SPA).
 
-## 🚀 Redesign Goals
+## Redesign Goals
 - **Modern UI/UX**: Indigo-themed design with glassmorphism and smooth transitions.
 - **Mobile First**: Built with responsive layouts specifically for student access.
 - **Accessibility**: Semantic HTML and keyboard-navigable components.
@@ -10,7 +10,7 @@ This is a complete redesign of the FOSSEE Workshop Booking system, transitioning
 
 ---
 
-## 🧠 Reasoning & Design Decisions
+## Reasoning & Design Decisions
 
 ### 1. What design principles guided your improvements?
 - **Visual Hierarchy**: Used clear typography (Inter font) and weight to distinguish primary actions (Propose/Accept) from secondary metadata.
@@ -34,7 +34,7 @@ This is a complete redesign of the FOSSEE Workshop Booking system, transitioning
 
 ---
 
-## 🎨 Visual Showcase (Before & After)
+## Visual Showcase (Before & After)
 
 ### Registration Page (Before vs. After)
 Comparing the legacy Bootstrap form with the modern React glassmorphism design.
@@ -48,7 +48,7 @@ Comparing the legacy Bootstrap form with the modern React glassmorphism design.
 ### Dashboard & Tracking (After Redesign)
 The new interactive dashboard for Coordinators and Instructors.
 
-![Modern Dashboard](/docs/screenshots/modern_dashboard.png)
+![Modern Dashboard](/docs/screenshots/Screenshot 2026-04-06 141210.png)
 
 ---
 
@@ -62,7 +62,7 @@ The new interactive dashboard for Coordinators and Instructors.
 
 ---
 
-## 🛠️ Setup & Local Development
+## Setup & Local Development
 
 ### Prerequisites
 - Python 3.8+
