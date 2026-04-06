@@ -50,7 +50,7 @@ Comparing the legacy table-based dashboard with the modern interactive design.
 
 | Legacy Dashboard (Before) | Modern Dashboard (After) |
 | :---: | :---: |
-| ![Legacy Dashboard](/docs/screenshots/legacy_dashboard.png) | ![Modern Dashboard](/docs/screenshots/Screenshot 2026-04-06 141210.png) |
+| ![Legacy Dashboard](/docs/screenshots/legacy_dashboard.png) | ![Modern Dashboard](/docs/screenshots/modern_dashboard.png) |
 
 ---
 
