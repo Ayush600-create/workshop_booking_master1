@@ -14,4 +14,4 @@ def index(request):
         redirect_url = reverse("workshop_app:index")
     return redirect(redirect_url)
 def react_index(request):
-    return render(request, 'index.html')
+    return render(request, 'statistics_app/index.html')
