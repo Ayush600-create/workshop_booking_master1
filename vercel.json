@@ -11,10 +11,6 @@
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "api/index.py"
     }
@@ -22,5 +18,5 @@
   "env": {
     "DJANGO_SETTINGS_MODULE": "workshop_portal.settings"
   },
-  "buildCommand": "python manage.py collectstatic --noinput && python manage.py migrate --noinput"
+  "buildCommand": "python manage.py collectstatic --noinput"
 }

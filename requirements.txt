@@ -3,3 +3,4 @@ coverage
 pyaml
 django-recurrence
 pandas
+whitenoise
